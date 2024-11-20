@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Text & Files Across Devices - Kitpipe</title>
+    <!-- Quill CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/LineIcons.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/owl.theme.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/nivo-lightbox.css">
+    <link rel="stylesheet" href="css/main.css">    
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- jQuery, Popper.js, and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+</head>
+<body>
+
+    <header id="home" class="hero-area">    
+        <div class="overlay">
+            <span></span>
+            <span></span>
+        </div> 
+        <nav class="navbar navbar-expand-md bg-inverse fixed-top scrolling-navbar">
+            <div class="container">
+            <a href="index.html" class="navbar-brand"><img src="img/logo.png" alt="kalotika logo"></a>       
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="lni-line-double"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                <li>
+                    
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>       
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                </li>                     
+                </ul>
+
+            </div>
+            </div>
+        </nav>  
+                    
+    </header>
+
+    <div class="notepad-container">
+        <!-- Header with Action Buttons -->
+        <div class="notepad-header d-flex justify-content-between align-items-center">
+          <!-- Heading -->
+          <h4 class="notepad-title">Share Text & File Across Devices</h4>
+          <div id="completion-tick" style="display:none;"><img src="img/tick.png" alt=""></div>
+          <div id="typing-animation" style="display:none;"><img src="img/balls.png" alt=""></div>
+
+
+          <label for="theme" class="theme">
+            <span class="theme__toggle-wrap">
+              <input id="theme-toggle" class="theme__toggle" type="checkbox" role="switch" name="theme" value="dark">
+              <span class="theme__fill"></span>
+              <span class="theme__icon">
+                <span class="theme__icon-part"></span>
+                <span class="theme__icon-part"></span>
+                <span class="theme__icon-part"></span>
+                <span class="theme__icon-part"></span>
+                <span class="theme__icon-part"></span>
+                <span class="theme__icon-part"></span>
+                <span class="theme__icon-part"></span>
+                <span class="theme__icon-part"></span>
+                <span class="theme__icon-part"></span>
+              </span>
+            </span>
+          </label>
+
+
+             
+          <!-- Action Buttons -->
+          <div class="notepad-actions d-flex">
+            <button id="copy-savr" class="btn btn-outline btn-default" title="Copy" aria-expanded="false" onclick="copyContent()">
+              <ion-icon id="copy-icon" class="iconex" name="copy-outline"></ion-icon>
+              <span class="hidden-xs" id="copy-text">Copy</span>
+            </button>
+      
+            <a class="btn btn-outline btn-default" title="Links" href="#" onclick="toggleDisplay('link-display')">
+              <ion-icon class="iconex" name="link-outline"></ion-icon>
+              <span class="hidden-xs">Links</span>
+          </a>
+          
+          <a class="btn btn-outline btn-default" title="Upload" href="#" onclick="toggleDisplay('upload-display')">
+              <ion-icon class="iconex" name="cloud-upload-outline"></ion-icon>
+              <span class="hidden-xs">Upload</span>
+          </a>
+          
+          <a class="btn btn-outline btn-default" title="Files" href="#" onclick="toggleDisplay('file-display')">
+              <ion-icon class="iconex" name="document-outline"></ion-icon>
+              <span class="hidden-xs">Files</span>
+          </a>
+          
+        
+          <a class="btn btn-outline btn-default" title="Settings" id="btn-settings" href="##">
+            <ion-icon name="settings-outline"></ion-icon>
+          </a>
+          
+      
+            <a class="btn btn-outline btn-default" title="Refresh" id="btn-rotate" href="##">
+              <ion-icon name="reload-outline"></ion-icon>
+            </a>
+                  
+
+            <!-- <a class="btn btn-outline btn-default" title="Clear" href="#">
+              <ion-icon name="trash-bin-outline"></ion-icon>
+            </a> -->
+          </div>
+
+
+        </div>
+    
+        <div id="link-display" class="link-container content-section">
+          <ul id="link-list"></ul>
+        </div>  
+
+        <div id="upload-display" class="upload-container content-section" style="display: none;">
+          <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+            <div id="drop-area">
+              <p>Drag & drop files here or</p>
+              <input type="file" name="file" id="file-input" required multiple>
+              <button type="button" id="upload-button">Upload File</button>
+            </div>
+          </form>
+          
+          <!-- Progress Bar -->
+          <div id="progress-container" class="progress-container" style="display:none;">
+            <div id="progress-bar" class="progress-bar"></div>
+          </div>
+          
+        </div>
+        
+          
+        <div id="file-display" class="file-list content-section" style="display: none;">
+          <ul id="file-list"></ul>
+          <li id="no-files-message" style="display: none;">No files uploaded on the server.</li>
+        </div>
+      
+      
+        <!-- Quill.js Editor -->
+        <div id="editor-container" contenteditable="true" class="notepad-content"></div>
+          
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="footer-content d-flex justify-content-between align-items-center">
+    
+            <!-- Copyright and Developer Info -->
+            <div class="copyright">
+              <p>&copy; 2024 Kitpipe | <a href="https://zyrtx.tech" target="_blank">Developed by Zyrtx Technologies</a></p>
+            </div>
+      
+            <!-- Links -->
+            <ul class="footer-links">
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+      
+            <!-- Social Media Links -->
+            <div class="social-links">
+              <a href="#" title="Facebook"><ion-icon name="logo-facebook"></ion-icon></a>
+              <a href="#" title="Instagram"><ion-icon name="logo-instagram"></ion-icon></a>
+              <a href="#" title="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
+            </div>
+    
+          </div>
+        </div>
+      </footer>
+
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <!-- Socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+
+
+        function displayFiles(files) {
+        const fileList = document.getElementById('file-list');
+        const noFilesMessage = document.getElementById('no-files-message');
+
+        fileList.innerHTML = '';
+
+        if (files.length === 0) {
+            noFilesMessage.style.display = 'block';
+        } else {
+            noFilesMessage.style.display = 'none';
+            files.forEach(file => {
+                const li = document.createElement('li');
+                li.textContent = file.name; // Assuming file has a name property
+                fileList.appendChild(li);
+            });
+        }
+    }
+
+    </script>
+
+  <script src="js/main.js"></script>
+  <script src="js/animation.js"></script>
+</body>
+</html>

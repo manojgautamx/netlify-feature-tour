@@ -1,0 +1,21 @@
+{
+  "text": {
+    "ops": [
+      {
+        "attributes": {
+          "header": 1
+        },
+        "insert": "\n"
+      }
+    ]
+  },
+  "links": [],
+  "ops": [
+    {
+      "attributes": {
+        "header": 1
+      },
+      "insert": "\n"
+    }
+  ]
+}
